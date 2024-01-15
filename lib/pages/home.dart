@@ -8,41 +8,66 @@ class HomePages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
+      backgroundColor: Colors.white,
       body: Column(
         children: [
-          Container(
-            // Memberikan margin dan juga color pada container
-            margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black.withOpacity(0.11),
-                    blurRadius: 40,
-                    spreadRadius: 0.0),
-              ],
-            ),
-            // Menambahkan tetxfield
-            child: TextField(
-              decoration: InputDecoration(
-                // dapat di berikan warna
-                filled: true,
-                fillColor: Colors.white,
-                // meambahkan icon pada sebeleh kiri
-                prefixIcon: const Icon(Icons.search_rounded),
-                // menambahkaan icon pada sebelah kanan
-                suffixIcon: const Icon(Icons.menu),
-                // memberikan padiing oada setiap sisinya
-                contentPadding: const EdgeInsets.all(15),
-                // memberikan border menjadi outline
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide.none),
-              ),
-            ),
-          )
+          _searchFields()
         ],
       ),
     );
+  }
+
+  Container _searchFields() {
+    return Container(
+          // Memberikan margin dan juga color pada container
+          margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(0.11),
+                  blurRadius: 40,
+                  spreadRadius: 0.0),
+            ],
+          ),
+          // Menambahkan tetxfield
+          child: TextField(
+            decoration: InputDecoration(
+              // dapat di berikan warna
+              filled: true,
+              fillColor: Colors.white,
+              hintText: 'Search breakfast',
+              hintStyle: const TextStyle(color: Colors.black45, fontSize: 14),
+
+              // meambahkan icon pada sebeleh kiri
+              prefixIcon: const Icon(Icons.search_rounded),
+              // menambahkaan icon pada sebelah kanan
+              suffixIcon: Container(
+                width: 100,
+                child:  const IntrinsicHeight(
+                  child: Row(
+                  
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      VerticalDivider(
+                        color: Colors.black45,
+                        indent: 15,
+                        endIndent: 15,
+                        thickness: 1.0,
+                      ),
+                      Icon(Icons.menu,),Padding(padding: EdgeInsets.only(left: 10))
+                    ],
+                  ),
+                ),
+              ),
+              // memberikan padiing oada setiap sisinya
+              contentPadding: const EdgeInsets.all(15),
+              // memberikan border menjadi outline
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none),
+            ),
+          ),
+        );
   }
 
   AppBar appBar() {
