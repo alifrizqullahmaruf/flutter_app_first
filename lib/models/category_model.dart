@@ -5,20 +5,48 @@ class CategoryModel {
   String iconPath;
   Color boxColor;
 
-  CategoryModel(
-      {required this.name, required this.iconPath, required this.boxColor});
-
-  List<CategoryModel> getCategories() {
+  CategoryModel({
+    required this.name,
+    required this.iconPath,
+    required this.boxColor,
+  });
+  
+  static List<CategoryModel> getCategories() {
     List<CategoryModel> categories = [];
+    
+    categories.add(
+      CategoryModel(
+        name: 'Salad',
+        iconPath: 'assets/icons/plate.svg',
+        boxColor: const Color(0xff9DCEFF)
+      )
+    );
 
     categories.add(
-        CategoryModel(name: 'Salad', iconPath: 'assets/icons/pancakes.svg', boxColor: Colors.blueAccent));
-    categories.add(
-        CategoryModel(name: 'Panechake', iconPath: 'assets/icons/pancakes.svg', boxColor: Colors.blueAccent));
-    categories.add(
-        CategoryModel(name: 'Salad', iconPath: 'assets/icons/pancakes.svg', boxColor: Colors.blueAccent));
-    categories.add(
-        CategoryModel(name: 'Salad', iconPath: 'assets/icons/pancakes.svg', boxColor: Colors.blueAccent));
+      CategoryModel(
+        name: 'Cake',
+        iconPath: 'assets/icons/pancakes.svg',
+        boxColor: const Color(0xffEEA4CE)
+      )
+    );
 
+    categories.add(
+      CategoryModel(
+        name: 'Pie',
+        iconPath: 'assets/icons/pie.svg',
+        boxColor: const Color(0xff9DCEFF)
+      )
+    );
+
+    categories.add(
+      CategoryModel(
+        name: 'Smoothies',
+        iconPath: 'assets/icons/orange-snacks.svg',
+        boxColor: const Color(0xffEEA4CE)
+      )
+    );
+    
+
+    return categories;
   }
 }

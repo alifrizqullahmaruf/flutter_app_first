@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// use stl shortcut
 class HomePages extends StatelessWidget {
   const HomePages({super.key});
 
@@ -24,9 +23,10 @@ class HomePages extends StatelessWidget {
                 child: Text(
                   "Category",
                   style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600),
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -36,8 +36,9 @@ class HomePages extends StatelessWidget {
                 height: 150,
                 color: Colors.green.shade300,
                 child: ListView.builder(
+                  itemCount: 3, // Adjust the itemCount as needed
                   itemBuilder: (context, index) {
-                    return Container();
+                    return Container(); // Placeholder, replace with actual content
                   },
                 ),
               )
@@ -50,28 +51,23 @@ class HomePages extends StatelessWidget {
 
   Container _searchFields() {
     return Container(
-      // Memberikan margin dan juga color pada container
       margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.11),
-              blurRadius: 40,
-              spreadRadius: 0.0),
+            color: Colors.black.withOpacity(0.11),
+            blurRadius: 40,
+            spreadRadius: 0.0,
+          ),
         ],
       ),
-      // Menambahkan tetxfield
       child: TextField(
         decoration: InputDecoration(
-          // dapat di berikan warna
           filled: true,
           fillColor: Colors.white,
           hintText: 'Search breakfast',
           hintStyle: const TextStyle(color: Colors.black45, fontSize: 14),
-
-          // meambahkan icon pada sebeleh kiri
           prefixIcon: const Icon(Icons.search_rounded),
-          // menambahkaan icon pada sebelah kanan
           suffixIcon: Container(
             width: 100,
             child: const IntrinsicHeight(
@@ -87,17 +83,16 @@ class HomePages extends StatelessWidget {
                   Icon(
                     Icons.menu,
                   ),
-                  Padding(padding: EdgeInsets.only(left: 10))
+                  Padding(padding: EdgeInsets.only(left: 10)),
                 ],
               ),
             ),
           ),
-          // memberikan padiing oada setiap sisinya
           contentPadding: const EdgeInsets.all(15),
-          // memberikan border menjadi outline
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide.none),
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide.none,
+          ),
         ),
       ),
     );
@@ -105,29 +100,27 @@ class HomePages extends StatelessWidget {
 
   AppBar appBar() {
     return AppBar(
-        title: const Text(
-          'Breakfast',
-          style: TextStyle(
-              color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+      title: const Text(
+        'Breakfast',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
         ),
-        backgroundColor: Colors.white,
-        // Membuat tidak ada shadownya
-        elevation: 0.0,
-        // Membuat title berada di tengah
-        centerTitle: true,
-
-        // Leading = untuk bagian kiri icon
-        leading: Container(
+      ),
+      backgroundColor: Colors.white,
+      elevation: 0.0,
+      centerTitle: true,
+      leading: Container(
+        margin: const EdgeInsets.all(10),
+        child: const Icon(Icons.arrow_back_ios_new),
+      ),
+      actions: [
+        Container(
           margin: const EdgeInsets.all(10),
-          child: const Icon(Icons.arrow_back_ios_new),
+          child: const Icon(Icons.drag_indicator_rounded),
         ),
-
-        // actions untuk bagian kanan appbar icon
-        actions: [
-          Container(
-            margin: const EdgeInsets.all(10),
-            child: const Icon(Icons.drag_indicator_rounded),
-          ),
-        ]);
+      ],
+    );
   }
 }
